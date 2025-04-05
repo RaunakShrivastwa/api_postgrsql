@@ -2,9 +2,9 @@ import { pool } from "../config/database.js";
 
 const vendorTable = async () => {
   const query = `
-    CREATE TABLE IF NOT EXISTS vendor (
+    CREATE TABLE IF NOT EXISTS vender (
         id SERIAL PRIMARY KEY,
-        vendorName VARCHAR(100) NOT NULL,
+        venderName VARCHAR(100) NOT NULL,
         address VARCHAR(100),
         email VARCHAR(100) UNIQUE NOT NULL,
         phone VARCHAR(100),

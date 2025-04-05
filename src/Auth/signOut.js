@@ -1,4 +1,4 @@
-import userRepositery from "../repositery/userRepositery.js";
+import userRepositery from "../repositery/EntityRepositery.js";
 
 class logOut{
     logout = async (req, res) => {

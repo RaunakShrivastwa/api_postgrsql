@@ -1,5 +1,5 @@
 import jsonwebtoken from "jsonwebtoken";
-import userRepositery from "../repositery/userRepositery.js";
+import userRepositery from "../repositery/EntityRepositery.js";
 import EctDct from '../config/managePassword.js';
 
  class userAuth {
