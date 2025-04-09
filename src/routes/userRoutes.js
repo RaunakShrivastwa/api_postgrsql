@@ -11,6 +11,6 @@ userRouter.get("/", getAllUser);
 userRouter.get("/:id",verifyToken ,getByIdUser);
 userRouter.put("/:id", updateUser);
 userRouter.delete("/:id", deleteUser);
-userRouter.post("/text/user",GeminiAPI.generateContent)
+userRouter.post("/text/user",verifyToken,GeminiAPI.generateContent)
 
 export default userRouter;

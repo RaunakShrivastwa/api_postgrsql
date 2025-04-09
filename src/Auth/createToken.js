@@ -1,13 +1,15 @@
 import jsonwebtoken from "jsonwebtoken";
 import userRepositery from "../repositery/EntityRepositery.js";
 import EctDct from '../config/managePassword.js';
-
+ const repo = new userRepositery('users');
  class userAuth {
   // User Login
   async login(req, res) {
     try {
       const { email, password } = req.body;
-      const user = await userRepositery.getUserEmail(email);
+      const user = await repo.getUserEmail(email);
+      console.log("user",user);
+      
 
       if (!user) {
         return res.status(404).json({ message: "User not found" });
@@ -26,7 +28,9 @@ import EctDct from '../config/managePassword.js';
           expiresIn: `1h`,
         }
       );
-      userRepositery.updateUser(user.id, { token: authToken });
+      const update = await repo.updateById(user.id, { token: authToken });
+      console.log("updated",update);
+      
       req.user = user
       // Set token in cookies
       res.cookie("authToken", authToken, {

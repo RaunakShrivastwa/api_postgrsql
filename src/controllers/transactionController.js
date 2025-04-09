@@ -13,7 +13,11 @@ class transactionController{
     }
 
     getAllTransaction = async (req,res)=>{
-        
+        try{
+          return res.status(200).json(await repo.findAll());
+        }catch(err){
+         return res.status(500).json({err})
+        }
     }
 
     updateTransaction = async (req,res)=>{
@@ -21,7 +25,12 @@ class transactionController{
     }
 
     deleteTransaction = async (req,res)=>{
-
+       try{
+         const transaction =  await repo.deleteById(req.params.id);
+         return res.status(200).json(transaction);
+       }catch(err){
+         return res.status(500).json({err});
+       }
     }
 
     updateTransaction = async (req,res)=>{

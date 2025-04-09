@@ -6,7 +6,7 @@ const vendorTable = async () => {
         id SERIAL PRIMARY KEY,
         venderName VARCHAR(100) NOT NULL,
         address VARCHAR(100),
-        email VARCHAR(100) UNIQUE NOT NULL,
+        email VARCHAR(100),
         phone VARCHAR(100),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
